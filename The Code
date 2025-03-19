@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Compliance Checklist</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder {
+            color: #999;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .report {
+            margin-top: 30px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .remark {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .remark a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .remark a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>Cybersecurity Compliance Checklist</h1>
+
+    <!-- Form Section -->
+    <form id="checklist-form" action="https://formspree.io/f/xpwqvdla" method="POST">
+        <!-- User Information Section -->
+        <h2>Provide Your Information</h2>
+        <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+            <label for="mobile">Phone:</label>
+            <input type="text" id="mobile" name="mobile" required placeholder="Enter your phone number">
+
+            <label for="organisation">Organisation:</label>
+            <input type="text" id="organisation" name="organisation" required placeholder="Enter your organisation">
+        </div>
+
+        <hr>
+
+        <!-- Checklist Sections -->
+        <h2>1. Governance & Policy Framework</h2>
+        <label><input type="checkbox" class="gp-checklist"> Cyber Security & Resilience Policy approved by the Board of AMC and Trustees, reviewed annually.</label>
+        <label><input type="checkbox" class="gp-checklist"> Policy covers Identify, Protect, Detect, Respond, and Recover framework.</label>
+        <label><input type="checkbox" class="gp-checklist"> Policy aligns with NCIIPC Guidelines and international standards (ISO 27001, ISO 27002, COBIT 5).</label>
+        <label><input type="checkbox" class="gp-checklist"> Appointment of a Chief Information Security Officer (CISO) with clear roles and responsibilities.</label>
+        <label><input type="checkbox" class="gp-checklist"> Establishment of a Technology Committee to review cyber security implementation quarterly.</label>
+        <label><input type="checkbox" class="gp-checklist"> Incident reporting structure for unusual cyber activities to senior management.</label>
+        <label><input type="checkbox" class="gp-checklist"> Periodic review of global and domestic cyber-attacks trends for strengthening security measures.</label>
+        <label><input type="checkbox" class="gp-checklist"> Define security responsibilities for employees, vendors, and third parties accessing AMC systems.</label>
+
+        <h2>2. Identify – Critical IT Assets & Risk Management</h2>
+        <label><input type="checkbox" class="id-checklist"> Maintain an up-to-date IT asset inventory (hardware, software, databases, network resources).</label>
+        <label><input type="checkbox" class="id-checklist"> Classify critical IT assets based on their importance to operations and data sensitivity.</label>
+        <label><input type="checkbox" class="id-checklist"> Identify and document cyber risks, threats, and vulnerabilities with impact assessments.</label>
+        <label><input type="checkbox" class="id-checklist"> Ensure third-party service providers follow similar security standards.</label>
+
+        <h2>3. Protect – Access & Data Security</h2>
+        <label><input type="checkbox" class="pd-checklist"> Role-based access control (RBAC) implemented.</label>
+        <label><input type="checkbox" class="pd-checklist"> Multi-factor authentication (MFA) for accessing critical systems.</label>
+        <label><input type="checkbox" class="pd-checklist"> Strong password policies enforced.</label>
+        <label><input type="checkbox" class="pd-checklist"> Audit logging of user access with logs encrypted and stored for at least 2 years.</label>
+        <label><input type="checkbox" class="pd-checklist"> Privileged access management (PAM) with strict controls for administrators.</label>
+        <label><input type="checkbox" class="pd-checklist"> Automatic account lockout after multiple failed login attempts.</label>
+        <label><input type="checkbox" class="pd-checklist"> Proper deactivation of accounts for employees leaving the organization.</label>
+        <label><input type="checkbox" class="pd-checklist"> Restrict physical access to critical IT infrastructure.</label>
+        <label><input type="checkbox" class="pd-checklist"> CCTV surveillance, biometric access controls, and security guards for data centers.</label>
+        <label><input type="checkbox" class="pd-checklist"> Baseline security standards for OS, databases, and network devices.</label>
+        <label><input type="checkbox" class="pd-checklist"> Firewalls and Intrusion Detection/Prevention Systems (IDS/IPS) implemented.</label>
+        <label><input type="checkbox" class="pd-checklist"> Antivirus and malware protection on all IT assets with regular updates.</label>
+        <label><input type="checkbox" class="pd-checklist"> Encryption of data-in-motion and data-at-rest (AES-256, RSA, SHA-2).</label>
+        <label><input type="checkbox" class="pd-checklist"> Secure disposal of data storage devices using methods like wiping, degaussing, or physical destruction.</label>
+        <label><input type="checkbox" class="pd-checklist"> Secure coding practices and regression testing for new software releases.</label>
+        <label><input type="checkbox" class="pd-checklist"> Regular security patching with defined timelines based on risk levels.</label>
+
+        <h2>4. Detect – Continuous Monitoring & VAPT</h2>
+        <label><input type="checkbox" class="dt-checklist"> Implement Security Information and Event Management (SIEM) for monitoring security events.</label>
+        <label><input type="checkbox" class="dt-checklist"> Real-time detection of unauthorized access, system changes, and cyber threats.</label>
+        <label><input type="checkbox" class="dt-checklist"> Vulnerability Assessment and Penetration Testing (VAPT) conducted at least once a year.</label>
+        <label><input type="checkbox" class="dt-checklist"> Additional VAPT before commissioning any internet-facing system.</label>
+
+        <h2>5. Respond & Recover – Incident Management & Business Continuity</h2>
+        <label><input type="checkbox" class="rr-checklist"> Alerts and forensic analysis for security breaches and cyber incidents.</label>
+        <label><input type="checkbox" class="rr-checklist"> Cyber Incident Response Plan (CIRP) aligned with Recovery Time Objective (RTO) & Recovery Point Objective (RPO).</label>
+        <label><input type="checkbox" class="rr-checklist"> Periodic incident response drills to test readiness.</label>
+        <label><input type="checkbox" class="rr-checklist"> Post-incident analysis to incorporate lessons learned and strengthen security.</label>
+
+        <h2>6. Sharing of Cyber Incident Data with SEBI</h2>
+        <label><input type="checkbox" class="sebi-checklist"> Submit quarterly reports on cyber threats, incidents, and mitigation measures to SEBI.</label>
+        <label><input type="checkbox" class="sebi-checklist"> Share useful cyber threat intelligence with other AMCs/MFs via SEBI-specified mechanisms.</label>
+
+        <h2>7. Employee & Vendor Security Awareness Training</h2>
+        <label><input type="checkbox" class="ta-checklist"> Conduct regular cybersecurity training for employees, vendors, and outsourced staff.</label>
+        <label><input type="checkbox" class="ta-checklist"> Special cyber awareness programs for non-technical staff.</label>
+        <label><input type="checkbox" class="ta-checklist"> Annual updates to training content to keep up with emerging threats.</label>
+
+        <h2>8. Annual Compliance Audit & SEBI Reporting</h2>
+        <label><input type="checkbox" class="audit-checklist"> Conduct annual cybersecurity audits by CISA/CISM-certified or CERT-IN empaneled auditors.</label>
+        <label><input type="checkbox" class="audit-checklist"> Submit audit report with AMC Board & Trustee comments to SEBI within 3 months after fiscal year-end.</label>
+
+        <h2>9. Vendor & Third-Party Compliance</h2>
+        <label><input type="checkbox" class="vendor-checklist"> Clearly define cybersecurity requirements in contracts with vendors, RTAs, service providers.</label>
+        <label><input type="checkbox" class="vendor-checklist"> Establish monitoring frameworks to ensure vendor compliance.</label>
+        <label><input type="checkbox" class="vendor-checklist"> Include critical outsourced functions in SEBI’s periodic compliance reports.</label>
+
+        <!-- Submit Button -->
+        <button type="button" id="submit-btn">Submit</button>
+    </form>
+
+    <!-- Report Section -->
+    <div class="report hidden" id="report">
+        <h2>Audit Checklist Summary</h2>
+        <table id="audit-table">
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Total Items</th>
+                    <th>Items Completed</th>
+                    <th>Compliance Score (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows for each section -->
+                <!-- Governance & Policy Framework -->
+                <tr>
+                    <td>Governance & Policy Framework</td>
+                    <td>8</td>
+                    <td id="gp-completed">0</td>
+                    <td id="gp-score">0%</td>
+                </tr>
+                <!-- Identify – Critical IT Assets & Risk Management -->
+                <tr>
+                    <td>Identify – Critical IT Assets & Risk Management</td>
+                    <td>4</td>
+                    <td id="id-completed">0</td>
+                    <td id="id-score">0%</td>
+                </tr>
+                <!-- Protect – Access & Data Security -->
+                <tr>
+                    <td>Protect – Access & Data Security</td>
+                    <td>17</td>
+                    <td id="pd-completed">0</td>
+                    <td id="pd-score">0%</td>
+                </tr>
+                <!-- Detect – Continuous Monitoring & VAPT -->
+                <tr>
+                    <td>Detect – Continuous Monitoring & VAPT</td>
+                    <td>4</td>
+                    <td id="dt-completed">0</td>
+                    <td id="dt-score">0%</td>
+                </tr>
+                <!-- Respond & Recover – Incident Management & Business Continuity -->
+                <tr>
+                    <td>Respond & Recover – Incident Management & Business Continuity</td>
+                    <td>4</td>
+                    <td id="rr-completed">0</td>
+                    <td id="rr-score">0%</td>
+                </tr>
+                <!-- Sharing of Cyber Incident Data with SEBI -->
+                <tr>
+                    <td>Sharing of Cyber Incident Data with SEBI</td>
+                    <td>2</td>
+                    <td id="sebi-completed">0</td>
+                    <td id="sebi-score">0%</td>
+                </tr>
+                <!-- Employee & Vendor Security Awareness Training -->
+                <tr>
+                    <td>Employee & Vendor Security Awareness Training</td>
+                    <td>3</td>
+                    <td id="ta-completed">0</td>
+                    <td id="ta-score">0%</td>
+                </tr>
+                <!-- Annual Compliance Audit & SEBI Reporting -->
+                <tr>
+                    <td>Annual Compliance Audit & SEBI Reporting</td>
+                    <td>2</td>
+                    <td id="audit-completed">0</td>
+                    <td id="audit-score">0%</td>
+                </tr>
+                <!-- Vendor & Third-Party Compliance -->
+                <tr>
+                    <td>Vendor & Third-Party Compliance</td>
+                    <td>3</td>
+                    <td id="vendor-completed">0</td>
+                    <td id="vendor-score">0%</td>
+                </tr>
+                <!-- Total -->
+                <tr>
+                    <th>Total</th>
+                    <th>47</th>
+                    <th id="total-completed">0</th>
+                    <th id="total-score">0%</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Remark Section -->
+        <div class="remark" id="remark">
+            <!-- Remarks will be dynamically inserted here -->
+        </div>
+
+        <!-- Download Button -->
+        <button id="download-btn">Download PDF</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Section configuration
+        const sections = {
+            "gp": { total: 8, completedId: "gp-completed", scoreId: "gp-score" },
+            "id": { total: 4, completedId: "id-completed", scoreId: "id-score" },
+            "pd": { total: 17, completedId: "pd-completed", scoreId: "pd-score" },
+            "dt": { total: 4, completedId: "dt-completed", scoreId: "dt-score" },
+            "rr": { total: 4, completedId: "rr-completed", scoreId: "rr-score" },
+            "sebi": { total: 2, completedId: "sebi-completed", scoreId: "sebi-score" },
+            "ta": { total: 3, completedId: "ta-completed", scoreId: "ta-score" },
+            "audit": { total: 2, completedId: "audit-completed", scoreId: "audit-score" },
+            "vendor": { total: 3, completedId: "vendor-completed", scoreId: "vendor-score" }
+        };
+
+        // Function to update scores
+        function updateScores() {
+            let totalCompleted = 0;
+            let totalItems = 0;
+
+            Object.keys(sections).forEach(section => {
+                const checkboxes = document.querySelectorAll(`.${section}-checklist`);
+                const completed = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+                const total = sections[section].total;
+
+                // Update individual section's completed and score
+                document.getElementById(sections[section].completedId).innerText = completed;
+                document.getElementById(sections[section].scoreId).innerText = ((completed / total) * 100).toFixed(2) + "%";
+
+                // Update totals
+                totalCompleted += completed;
+                totalItems += total;
+            });
+
+            // Update total compliance score
+            const totalScore = ((totalCompleted / totalItems) * 100).toFixed(2);
+            document.getElementById("total-completed").innerText = totalCompleted;
+            document.getElementById("total-score").innerText = totalScore + "%";
+
+            // Add remarks based on the total score
+            const remarkDiv = document.getElementById("remark");
+            if (totalScore <= 80) {
+                remarkDiv.innerHTML = "Remarks: Efforts needed. We will help you comply, 📞 <strong>8010101070</strong> or ✉️ <a href='mailto:sales@ngbps.com'><strong>sales@ngbps.com</strong></a>";
+            } else if (totalScore <= 90) {
+                remarkDiv.innerHTML = "Remarks: Good, Almost there. We will help you comply, 📞 <strong>8010101070</strong> or ✉️ <a href='mailto:sales@ngbps.com'><strong>sales@ngbps.com</strong></a>";
+            } else {
+                remarkDiv.innerHTML = "Remarks: Very Good - Fully Compliant. Explore our services to ensure you maintain this score, 📞 <strong>8010101070</strong> or ✉️ <a href='mailto:sales@ngbps.com'><strong>sales@ngbps.com</strong></a>";
+            }
+        }
+
+        // Add event listeners to all checkboxes to update scores dynamically
+        document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+            checkbox.addEventListener("change", updateScores);
+        });
+
+        // Show report and send data to Formspree
+        document.getElementById("submit-btn").addEventListener("click", function () {
+            // Validate required fields
+            if (!document.getElementById("name").value ||
+                !document.getElementById("email").value ||
+                !document.getElementById("organisation").value ||
+                !document.getElementById("mobile").value) {
+               
+                alert("Please fill in all the required details before proceeding.");
+                return;
+            }
+
+            // Gather checklist responses
+            const checklistResponses = [];
+            document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                const question = checkbox.parentElement.textContent.trim();
+                if (checkbox.checked) {
+                    checklistResponses.push(question + ": Yes");
+                } else {
+                    checklistResponses.push(question + ": No");
+                }
+            });
+
+            // Prepare data for Formspree
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                mobile: document.getElementById("mobile").value,
+                organisation: document.getElementById("organisation").value,
+                checklist: checklistResponses.join("\n")
+            };
+
+            // Send data to Formspree
+            fetch('https://formspree.io/f/xpwqvdla', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Checklist submitted successfully!");
+                    document.getElementById("report").classList.remove("hidden");
+                    updateScores(); // Update scores when showing the report
+                } else {
+                    alert("There was a problem with the submission.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("There was an error submitting the checklist.");
+            });
+        });
+
+        // Download PDF functionality
+        document.getElementById("download-btn").addEventListener("click", function () {
+            // Temporarily remove the download button from the DOM
+            const downloadBtn = document.getElementById("download-btn");
+            downloadBtn.remove();
+
+            // Use html2canvas to capture the report section (excluding the button)
+            html2canvas(document.getElementById("report")).then(canvas => {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Add the captured content to PDF
+                const imgData = canvas.toDataURL("image/png");
+                const imgWidth = 190; // Max width for A4 paper
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                doc.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+                doc.save("Audit_Checklist_Summary.pdf");
+
+                // Re-add the download button to the DOM
+                document.getElementById("report").appendChild(downloadBtn);
+            });
+        });
+    </script>
+</body>
+</html>
